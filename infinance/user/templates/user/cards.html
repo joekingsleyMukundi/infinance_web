@@ -1,0 +1,917 @@
+{% extends 'user/main.html'%}
+
+{% block content%}
+
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper container-xxl p-0">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-start mb-0">Advance Card</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-2.html">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">Card</a>
+                </li>
+
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+        <div class="mb-1 breadcrumb-right">
+          <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#new-card-modal">
+            Add Task
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-body">
+    <!-- Card Advance -->
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <div class="alert alert-{%if message.tags == 'error'%}danger
+        {%else%}success
+        {%endif%} alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>{{ message}}</strong>
+      </div>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="row match-height">
+      <!-- Congratulations Card -->
+      <!-- <div class="col-12 col-md-6 col-lg-7">
+          <div class="card card-congratulations">
+            <div class="card-body text-center">
+              <img
+                src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/elements/decore-left.png"
+                class="congratulations-img-left" alt="card-img-left" />
+              <img
+                src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/elements/decore-right.png"
+                class="congratulations-img-right" alt="card-img-right" />
+              <div class="avatar avatar-xl bg-primary shadow">
+                <div class="avatar-content">
+                  <i data-feather="award" class="font-large-1"></i>
+                </div>
+              </div>
+              <div class="text-center">
+                <h1 class="mb-1 text-white">Congratulations John,</h1>
+                <p class="card-text m-auto w-75">
+                  You have done <strong>57.6%</strong> more sales today. Check your new badge in your profile.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Congratulations Card -->
+
+      <!-- Medal Card -->
+      <!-- <div class="col-12 col-md-6 col-lg-5">
+          <div class="card card-congratulation-medal">
+            <div class="card-body">
+              <h5>Congratulations 🎉 John!</h5>
+              <p class="card-text font-small-3">You have won gold medal</p>
+              <h3 class="mb-75 mt-4">
+                <a href="#">$48.9k</a>
+              </h3>
+              <button type="button" class="btn btn-primary">View Sales</button>
+              <img
+                src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/illustration/badge.svg"
+                class="congratulation-medal" alt="Medal Pic" />
+            </div>
+          </div>
+        </div> -->
+      <!--/ Medal Card -->
+    </div>
+
+    <div class="row match-height">
+      <!-- Employee Task Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-employee-task">
+            <div class="card-header">
+              <h4 class="card-title">Employee Task</h4>
+              <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
+            </div>
+            <div class="card-body">
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Ryan Harrington</h6>
+                    <small>iOS Developer</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">9hr 20m</small>
+                  <div class="employee-task-chart-primary-1"></div>
+                </div>
+              </div>
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Louisa Norton</h6>
+                    <small>UI Designer</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">4hr 17m</small>
+                  <div class="employee-task-chart-danger"></div>
+                </div>
+              </div>
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-1.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Jayden Duncan</h6>
+                    <small>Java Developer</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">12hr 8m</small>
+                  <div class="employee-task-chart-success"></div>
+                </div>
+              </div>
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Cynthia Howell</h6>
+                    <small>Anguler Developer</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">3hr 19m</small>
+                  <div class="employee-task-chart-secondary"></div>
+                </div>
+              </div>
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-16.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Helena Payne</h6>
+                    <small>Marketing</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">9hr 50m</small>
+                  <div class="employee-task-chart-warning"></div>
+                </div>
+              </div>
+              <div class="employee-task d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                  <div class="avatar me-75">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-13.jpg"
+                      class="rounded" width="42" height="42" alt="Avatar" />
+                  </div>
+                  <div class="my-auto">
+                    <h6 class="mb-0">Troy Jensen</h6>
+                    <small>iOS Developer</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-75">4hr 48m</small>
+                  <div class="employee-task-chart-primary-2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Employee Task Card -->
+
+      <!-- Developer Meetup Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-developer-meetup">
+            <div class="meetup-img-wrapper rounded-top text-center">
+              <img
+                src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/illustration/email.svg"
+                alt="Meeting Pic" height="170" />
+            </div>
+            <div class="card-body">
+              <div class="meetup-header d-flex align-items-center">
+                <div class="meetup-day">
+                  <h6 class="mb-0">THU</h6>
+                  <h3 class="mb-0">24</h3>
+                </div>
+                <div class="my-auto">
+                  <h4 class="card-title mb-25">Developer Meetup</h4>
+                  <p class="card-text mb-0">Meet world popular developers</p>
+                </div>
+              </div>
+              <div class="d-flex flex-row meetings">
+                <div class="avatar bg-light-primary rounded me-1">
+                  <div class="avatar-content">
+                    <i data-feather="calendar" class="avatar-icon font-medium-3"></i>
+                  </div>
+                </div>
+                <div class="content-body">
+                  <h6 class="mb-0">Sat, May 25, 2020</h6>
+                  <small>10:AM to 6:PM</small>
+                </div>
+              </div>
+              <div class="d-flex flex-row meetings">
+                <div class="avatar bg-light-primary rounded me-1">
+                  <div class="avatar-content">
+                    <i data-feather="map-pin" class="avatar-icon font-medium-3"></i>
+                  </div>
+                </div>
+                <div class="content-body">
+                  <h6 class="mb-0">Central Park</h6>
+                  <small>Manhattan, New york City</small>
+                </div>
+              </div>
+              <div class="avatar-group">
+                <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                  title="Billy Hopkins" class="avatar pull-up">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                    alt="Avatar" width="33" height="33" />
+                </div>
+                <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Amy Carson"
+                  class="avatar pull-up">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                    alt="Avatar" width="33" height="33" />
+                </div>
+                <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                  title="Brandon Miles" class="avatar pull-up">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-8.jpg"
+                    alt="Avatar" width="33" height="33" />
+                </div>
+                <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Daisy Weber"
+                  class="avatar pull-up">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                    alt="Avatar" width="33" height="33" />
+                </div>
+                <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                  title="Jenny Looper" class="avatar pull-up">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                    alt="Avatar" width="33" height="33" />
+                </div>
+                <h6 class="align-self-center cursor-pointer ms-50 mb-0">+42</h6>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Developer Meetup Card -->
+
+      <!-- Profile Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-profile">
+            <img
+              src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/banner/banner-12.jpg"
+              class="img-fluid card-img-top" alt="Profile Cover Photo" />
+            <div class="card-body">
+              <div class="profile-image-wrapper">
+                <div class="profile-image">
+                  <div class="avatar">
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                      alt="Profile Picture" />
+                  </div>
+                </div>
+              </div>
+              <h3>Curtis Stone</h3>
+              <h6 class="text-muted">Malaysia</h6>
+              <span class="badge badge-light-primary profile-badge">Pro Level</span>
+              <hr class="mb-2" />
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-muted fw-bolder">Followers</h6>
+                  <h3 class="mb-0">10.3k</h3>
+                </div>
+                <div>
+                  <h6 class="text-muted fw-bolder">Projects</h6>
+                  <h3 class="mb-0">156</h3>
+                </div>
+                <div>
+                  <h6 class="text-muted fw-bolder">Rank</h6>
+                  <h3 class="mb-0">23</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Profile Card -->
+
+      <!-- Apply Job Card -->
+      {% if total_cards == 0%}
+      No cards
+      {%else%}
+      {%for card in cards%}
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card card-apply-job">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <div class="d-flex flex-row">
+                <div class="avatar me-1">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                    alt="Avatar" width="42" height="42" />
+                </div>
+                <div class="user-info">
+                  <h5 class="mb-0">{{ user_data.username }}</h5>
+                  <small class="text-muted">{{ card.card_number }}</small>
+                </div>
+              </div>
+              <span class="badge rounded-pill badge-light-primary">{{ card.title }}</span>
+            </div>
+            <div class="apply-job-package bg-light-primary rounded">
+              <div>
+                <sup class="text-body"><small>Ksh</small></sup>
+                <h2 class="d-inline me-25">{{ card.balance }}</h2>
+              </div>
+              <span class="badge rounded-pill badge-light-primary">Balance</span>
+            </div>
+            <p class="card-text">
+              <small>Deposits: ksh:{{ card.revenue }}</small>
+            </p>
+            <p class="card-text text-success fw-bolder">+8.2% ($284)</p>
+            <div class="d-grid">
+              <a href="{%url 'deposite'%}">
+                <button type="button" class="btn btn-primary">Add Funds <i data-feather="plus"></i></button>
+              </a>
+            </div>
+            <hr class="deposits-divider" />
+            {%if card.balance != '0'%}
+            <a href="{%url 'sendmoney'%}">
+              <div class="d-grid">
+                <button type="button" class="btn btn-primary">Make Payment</button>
+              </div>
+            </a>
+            {%elif card.is_deleted == 0%}
+            <a href="{% url 'deletecard' card.id %}">
+              <button type="button" class="btn btn-primary">
+                <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-trash-2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                    </path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line>
+                    <line x1="14" y1="11" x2="14" y2="17"></line>
+                  </svg></div>
+              </button>
+            </a>
+            {%else%}
+            <a href="{% url 'deletecard' card.id %}">
+
+              <button type="button" class="btn btn-primary">
+                restore
+                <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-repeat">
+                    <polyline points="17 1 21 5 17 9"></polyline>
+                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                    <polyline points="7 23 3 19 7 15"></polyline>
+                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                  </svg></div>
+              </button>
+            </a>
+            {% endif%}
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+      {%endif%}
+      <!--/ Apply Job Card -->
+
+      <!-- Transaction card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-transaction">
+            <div class="card-header">
+              <h4 class="card-title">Transactions</h4>
+              <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
+            </div>
+            <div class="card-body">
+              <div class="transaction-item">
+                <div class="d-flex flex-row">
+                  <div class="avatar bg-light-primary rounded">
+                    <div class="avatar-content">
+                      <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="transaction-info">
+                    <h6 class="transaction-title">Wallet</h6>
+                    <small>Starbucks</small>
+                  </div>
+                </div>
+                <div class="fw-bolder text-danger">- $74</div>
+              </div>
+              <div class="transaction-item">
+                <div class="d-flex flex-row">
+                  <div class="avatar bg-light-success rounded">
+                    <div class="avatar-content">
+                      <i data-feather="check" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="transaction-info">
+                    <h6 class="transaction-title">Bank Transfer</h6>
+                    <small>Add Money</small>
+                  </div>
+                </div>
+                <div class="fw-bolder text-success">+ $480</div>
+              </div>
+              <div class="transaction-item">
+                <div class="d-flex flex-row">
+                  <div class="avatar bg-light-danger rounded">
+                    <div class="avatar-content">
+                      <i data-feather="dollar-sign" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="transaction-info">
+                    <h6 class="transaction-title">Paypal</h6>
+                    <small>Add Money</small>
+                  </div>
+                </div>
+                <div class="fw-bolder text-success">+ $590</div>
+              </div>
+              <div class="transaction-item">
+                <div class="d-flex flex-row">
+                  <div class="avatar bg-light-warning rounded">
+                    <div class="avatar-content">
+                      <i data-feather="credit-card" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="transaction-info">
+                    <h6 class="transaction-title">Mastercard</h6>
+                    <small>Ordered Food</small>
+                  </div>
+                </div>
+                <div class="fw-bolder text-danger">- $23</div>
+              </div>
+              <div class="transaction-item">
+                <div class="d-flex flex-row">
+                  <div class="avatar bg-light-info rounded">
+                    <div class="avatar-content">
+                      <i data-feather="trending-up" class="avatar-icon font-medium-3"></i>
+                    </div>
+                  </div>
+                  <div class="transaction-info">
+                    <h6 class="transaction-title">Transfer</h6>
+                    <small>Refund</small>
+                  </div>
+                </div>
+                <div class="fw-bolder text-success">+ $98</div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Transaction card -->
+
+      <!-- Payment Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-payment">
+            <div class="card-header">
+              <h4 class="card-title">Pay Amount</h4>
+              <h4 class="card-title text-primary">$455.60</h4>
+            </div>
+            <div class="card-body">
+              <form action="javascript:void(0);" class="form">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-2">
+                      <label class="form-label" for="payment-card-number">Card Number</label>
+                      <input type="number" id="payment-card-number" class="form-control"
+                        placeholder="2133 3244 4567 8921" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-12">
+                    <div class="mb-2">
+                      <label class="form-label" for="payment-expiry">Expiry</label>
+                      <input type="number" id="payment-expiry" class="form-control" placeholder="MM / YY" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-12">
+                    <div class="mb-2">
+                      <label class="form-label" for="payment-cvv">CVV / CVC</label>
+                      <input type="number" id="payment-cvv" class="form-control" placeholder="123" />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="mb-2">
+                      <label class="form-label" for="payment-input-name">Input Name</label>
+                      <input type="text" id="payment-input-name" class="form-control" placeholder="Curtis Stone" />
+                    </div>
+                  </div>
+                  <div class="d-grid col-12">
+                    <button type="button" class="btn btn-primary">Make Payment</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Payment Card -->
+    </div>
+
+    <div class="row match-height">
+      <!-- User Timeline Card -->
+      <!-- <div class="col-lg-8 col-12">
+          <div class="card card-user-timeline">
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <i data-feather="list" class="user-timeline-title-icon"></i>
+                <h4 class="card-title">User Timeline</h4>
+              </div>
+              <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
+            </div>
+            <div class="card-body">
+              <ul class="timeline ms-50">
+                <li class="timeline-item">
+                  <span class="timeline-point timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                      <h6>12 Invoices have been paid</h6>
+                      <span class="timeline-event-time me-1">12 min ago</span>
+                    </div>
+                    <p>Invoices have been paid to the company.</p>
+                    <div class="d-flex flex-row align-items-center">
+                      <img class="me-1"
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/json.png"
+                        alt="data.json" height="23" />
+                      <h6 class="mb-0">data.json</h6>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                      <h6>Client Meeting</h6>
+                      <span class="timeline-event-time me-1">45 min ago</span>
+                    </div>
+                    <p>Project meeting with john @10:15am</p>
+                    <div class="d-flex flex-row align-items-center">
+                      <div class="avatar me-50">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                          alt="Avatar" width="38" height="38" />
+                      </div>
+                      <div class="user-info">
+                        <h6 class="mb-0">John Doe (Client)</h6>
+                        <p class="mb-0">CEO of Infibeam</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                      <h6>Create a new project for client</h6>
+                      <span class="timeline-event-time me-1">2 day ago</span>
+                    </div>
+                    <p>Add files to new design folder</p>
+                    <div class="avatar-group">
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                        title="Billy Hopkins" class="avatar pull-up">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                          alt="Avatar" width="33" height="33" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                        title="Amy Carson" class="avatar pull-up">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                          alt="Avatar" width="33" height="33" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                        title="Brandon Miles" class="avatar pull-up">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-8.jpg"
+                          alt="Avatar" width="33" height="33" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                        title="Daisy Weber" class="avatar pull-up">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                          alt="Avatar" width="33" height="33" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom"
+                        title="Jenny Looper" class="avatar pull-up">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                          alt="Avatar" width="33" height="33" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                      <h6>Create a new project for client</h6>
+                      <span class="timeline-event-time me-1">5 day ago</span>
+                    </div>
+                    <p class="mb-0">Add files to new design folder</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      <!--/ User Timeline Card -->
+
+      <!-- Business Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card business-card">
+            <div class="card-header pb-1">
+              <h4 class="card-title">For Business Sharks</h4>
+              <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Here, i focus ona range of items and featured that we use in life without giving them
+              </p>
+              <h6 class="mb-75">Basic price is $130</h6>
+              <div class="business-items">
+                <div class="business-item">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="business-checkbox-1" />
+                      <label class="form-check-label" for="business-checkbox-1">Option #1</label>
+                    </div>
+                    <span class="badge badge-light-success">+$39</span>
+                  </div>
+                </div>
+                <div class="business-item">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="business-checkbox-2" checked />
+                      <label class="form-check-label" for="business-checkbox-2">Option #2</label>
+                    </div>
+                    <span class="badge badge-light-primary">+85</span>
+                  </div>
+                </div>
+                <div class="business-item">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="business-checkbox-3" />
+                      <label class="form-check-label" for="business-checkbox-3">Option #3</label>
+                    </div>
+                    <span class="badge badge-light-success">+$199</span>
+                  </div>
+                </div>
+                <div class="business-item">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="business-checkbox-4" />
+                      <label class="form-check-label" for="business-checkbox-4">Option #4</label>
+                    </div>
+                    <span class="badge badge-light-success">+$459</span>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="button" class="btn btn-primary">Purchase</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Business Card -->
+
+      <!-- Browser States Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-browser-states">
+            <div class="card-header">
+              <h4 class="card-title">Browser States</h4>
+              <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-text font-small-2">Counter August 2020</p>
+              <div class="browser-states">
+                <div class="d-flex flex-row">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/google-chrome.png"
+                    class="rounded me-1" height="30" alt="Google Chrome" />
+                  <h6 class="align-self-center mb-0">Google Chrome</h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-body-heading me-1">54.4%</div>
+                  <div class="state-chart-primary"></div>
+                </div>
+              </div>
+              <div class="browser-states">
+                <div class="d-flex flex-row">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/mozila-firefox.png"
+                    class="rounded me-1" height="30" alt="Mozila Firefox" />
+                  <h6 class="align-self-center mb-0">Mozila Firefox</h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-body-heading me-1">6.1%</div>
+                  <div class="state-chart-warning"></div>
+                </div>
+              </div>
+              <div class="browser-states">
+                <div class="d-flex flex-row">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/apple-safari.png"
+                    class="rounded me-1" height="30" alt="Apple Safari" />
+                  <h6 class="align-self-center mb-0">Apple Safari</h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-body-heading me-1">14.6%</div>
+                  <div class="state-chart-secondary"></div>
+                </div>
+              </div>
+              <div class="browser-states">
+                <div class="d-flex flex-row">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/internet-explorer.png"
+                    class="rounded me-1" height="30" alt="Internet Explorer" />
+                  <h6 class="align-self-center mb-0">Internet Explorer</h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-body-heading me-1">4.2%</div>
+                  <div class="state-chart-info"></div>
+                </div>
+              </div>
+              <div class="browser-states">
+                <div class="d-flex flex-row">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/opera.png"
+                    class="rounded me-1" height="30" alt="Opera Mini" />
+                  <h6 class="align-self-center mb-0">Opera Mini</h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-body-heading me-1">8.4%</div>
+                  <div class="state-chart-danger"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Browser States Card -->
+
+      <!-- App Design Card -->
+      <!-- <div class="col-lg-4 col-md-6 col-12">
+          <div class="card card-app-design">
+            <div class="card-body">
+              <span class="badge badge-light-primary">03 Sep, 20</span>
+              <h4 class="card-title mt-1 mb-75">App design</h4>
+              <p class="card-text font-small-2 mb-2">
+                You can Find Only Post and Quotes Related to IOS like ipad app design, iphone app design
+              </p>
+              <div class="design-group">
+                <h6 class="section-label">Team</h6>
+                <span class="badge badge-light-warning me-1">Figma</span>
+                <span class="badge badge-light-primary">Wireframe</span>
+              </div>
+              <div class="design-group">
+                <h6 class="section-label">Members</h6>
+                <div class="avatar">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-9.jpg"
+                    width="34" height="34" alt="Avatar" />
+                </div>
+                <div class="avatar bg-light-danger">
+                  <div class="avatar-content">PI</div>
+                </div>
+                <div class="avatar">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-14.jpg"
+                    width="34" height="34" alt="Avatar" />
+                </div>
+                <div class="avatar">
+                  <img
+                    src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-20.jpg"
+                    width="34" height="34" alt="Avatar" />
+                </div>
+                <div class="avatar bg-light-secondary">
+                  <div class="avatar-content">AL</div>
+                </div>
+              </div>
+              <div class="design-planning-wrapper">
+                <div class="design-planning">
+                  <p class="card-text mb-25">Due Date</p>
+                  <h6 class="mb-0">12 Apr, 21</h6>
+                </div>
+                <div class="design-planning">
+                  <p class="card-text mb-25">Budget</p>
+                  <h6 class="mb-0">$49251.91</h6>
+                </div>
+                <div class="design-planning">
+                  <p class="card-text mb-25">Cost</p>
+                  <h6 class="mb-0">$840.99</h6>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="button" class="btn btn-primary">Join Team</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ App Design Card -->
+
+      <!-- Deposits Card -->
+      <!-- ! commented for now as we are not using this card -->
+      <!-- <div class="col-lg-3 col-md-6 col-12">
+          <div class="card card-deposits">
+            <div class="card-body">
+              <h3>$12,490</h3>
+              <p class="card-text">
+                <small>Deposits: $18,389</small>
+              </p>
+              <p class="card-text text-success fw-bolder">+8.2% ($284)</p>
+              <div class="d-grid">
+                <button type="button" class="btn btn-primary">Add Funds <i data-feather="plus"></i></button>
+              </div>
+              <hr class="deposits-divider" />
+              <p class="card-text mb-50">
+                <small>Earned: $45,290</small>
+              </p>
+              <div class="progress progress-bar-success mb-2" style="height: 6px">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="75" aria-valuemax="100"
+                  style="width: 75%"></div>
+              </div>
+              <p class="card-text mb-50">
+                <small>Duration: 4year</small>
+              </p>
+              <div class="progress progress-bar-warning" style="height: 6px">
+                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="30" aria-valuemax="100"
+                  style="width: 30%"></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!--/ Deposits Card -->
+    </div>
+
+    <!--/ Card Advance -->
+
+  </div>
+</div>
+</div>
+
+<!-- Right Sidebar starts -->
+<div class="modal modal-slide-in sidebar-todo-modal fade" id="new-card-modal">
+  <div class="modal-dialog sidebar-lg">
+    <div class="modal-content p-0">
+      <form id="form-modal-todo" class="todo-modal needs-validation" action="" method="POST">
+        {%csrf_token%}
+        <div class="modal-header align-items-center mb-1">
+          <h5 class="modal-title">Add Task</h5>
+          <div class="todo-item-action d-flex align-items-center justify-content-between ms-auto">
+            <span class="todo-item-favorite cursor-pointer me-75"><i data-feather="star"
+                class="font-medium-2"></i></span>
+            <i data-feather="x" class="cursor-pointer" data-bs-dismiss="modal" stroke-width="3"></i>
+          </div>
+        </div>
+        <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
+          <div class="action-tags">
+            <div class="mb-1">
+              <label for="todoTitleAdd" class="form-label">Title</label>
+              <input type="text" name="title" class="new-todo-item-title form-control" placeholder="savings" required />
+            </div>
+            <div class="mb-1">
+              <label for="task-due-date" class="form-label">Initial Deposit</label>
+              <input type="number" class="form-control task-due-date" name="initdeposite" required />
+            </div>
+            <button type="submit" class="btn btn-primary ">Add</button>
+
+
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Right Sidebar ends -->
+<!-- END: Content-->
+
+
+{%endblock content%}

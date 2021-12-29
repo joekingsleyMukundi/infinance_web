@@ -1,0 +1,384 @@
+{% extends 'user/main.html'%}
+
+{% block content%}
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper container-xxl p-0">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-start mb-0">Form Layouts</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-2.html">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">Forms</a>
+                </li>
+                <li class="breadcrumb-item active"><a href="#">Form Layouts</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+        <div class="mb-1 breadcrumb-right">
+          <div class="dropdown">
+            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>
+            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1"
+                  data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item"
+                href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span
+                  class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1"
+                  data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item"
+                href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span
+                  class="align-middle">Calendar</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <!-- Basic Horizontal form layout section start -->
+      <!-- <section id="basic-horizontal-layouts">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Horizontal Form</h4>
+              </div>
+              <div class="card-body">
+                <form class="form form-horizontal">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="first-name">First Name</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" id="first-name" class="form-control" name="fname"
+                            placeholder="First Name" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="email-id">Email</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="contact-info">Mobile</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="number" id="contact-info" class="form-control" name="contact"
+                            placeholder="Mobile" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="password">Password</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="password" id="password" class="form-control" name="password"
+                            placeholder="Password" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9 offset-sm-3">
+                      <div class="mb-1">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="customCheck1" />
+                          <label class="form-check-label" for="customCheck1">Remember me</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9 offset-sm-3">
+                      <button type="reset" class="btn btn-primary me-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Horizontal Form with Icons</h4>
+              </div>
+              <div class="card-body">
+                <form class="form form-horizontal">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="fname-icon">First Name</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i data-feather="user"></i></span>
+                            <input type="text" id="fname-icon" class="form-control" name="fname-icon"
+                              placeholder="First Name" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="email-icon">Email</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i data-feather="mail"></i></span>
+                            <input type="email" id="email-icon" class="form-control" name="email-id-icon"
+                              placeholder="Email" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="contact-icon">Mobile</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i data-feather="smartphone"></i></span>
+                            <input type="number" id="contact-icon" class="form-control" name="contact-icon"
+                              placeholder="Mobile" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1 row">
+                        <div class="col-sm-3">
+                          <label class="col-form-label" for="pass-icon">Password</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i data-feather="lock"></i></span>
+                            <input type="password" id="pass-icon" class="form-control" name="contact-icon"
+                              placeholder="Password" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9 offset-sm-3">
+                      <div class="mb-1">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="customCheck2" />
+                          <label class="form-check-label" for="customCheck2">Remember me</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9 offset-sm-3">
+                      <button type="reset" class="btn btn-primary me-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <!-- Basic Horizontal form layout section end -->
+
+      <!-- Basic Vertical form layout section start -->
+      <!-- <section id="basic-vertical-layouts">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Vertical Form</h4>
+              </div>
+              <div class="card-body">
+                <form class="form form-vertical">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="first-name-vertical">First Name</label>
+                        <input type="text" id="first-name-vertical" class="form-control" name="fname"
+                          placeholder="First Name" />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="email-id-vertical">Email</label>
+                        <input type="email" id="email-id-vertical" class="form-control" name="email-id"
+                          placeholder="Email" />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="contact-info-vertical">Mobile</label>
+                        <input type="number" id="contact-info-vertical" class="form-control" name="contact"
+                          placeholder="Mobile" />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="password-vertical">Password</label>
+                        <input type="password" id="password-vertical" class="form-control" name="contact"
+                          placeholder="Password" />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="customCheck3" />
+                          <label class="form-check-label" for="customCheck3">Remember me</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="reset" class="btn btn-primary me-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Vertical Form with Icons</h4>
+              </div>
+              <div class="card-body">
+                <form class="form form-vertical">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="first-name-icon">First Name</label>
+                        <div class="input-group input-group-merge">
+                          <span class="input-group-text"><i data-feather="user"></i></span>
+                          <input type="text" id="first-name-icon" class="form-control" name="fname-icon"
+                            placeholder="First Name" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="email-id-icon">Email</label>
+                        <div class="input-group input-group-merge">
+                          <span class="input-group-text"><i data-feather="mail"></i></span>
+                          <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
+                            placeholder="Email" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="contact-info-icon">Mobile</label>
+                        <div class="input-group input-group-merge">
+                          <span class="input-group-text"><i data-feather="smartphone"></i></span>
+                          <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
+                            placeholder="Mobile" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="password-icon">Password</label>
+                        <div class="input-group input-group-merge">
+                          <span class="input-group-text"><i data-feather="lock"></i></span>
+                          <input type="password" id="password-icon" class="form-control" name="contact-icon"
+                            placeholder="Password" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-1">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="customCheck4" />
+                          <label class="form-check-label" for="customCheck4">Remember me</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="reset" class="btn btn-primary me-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <!-- Basic Vertical form layout section end -->
+
+      <!-- Basic multiple Column Form section start -->
+      <section id="multiple-column-form">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Multiple Column</h4>
+              </div>
+              <div class="card-body">
+                <form class="form">
+                  <div class="row">
+                    <div class="col-md-12 col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="email-id-column">Reciver Email</label>
+                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
+                          placeholder="Email" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 col-12">
+                      <div class="mb-1">
+                        <label class="form-label" for="city-column">Amount</label>
+                        <input type="text" id="city-column" class="form-control" placeholder="City"
+                          name="city-column" />
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                      <label class="form-label" for="select2-icons">Card</label>
+                      <select data-placeholder="Select a state..." class="select2-icons form-select" id="select2-icons">
+                        <optgroup label="Cards">
+                          <option value="facebook" data-icon="facebook" selected>Facebook</option>
+                          <option value="twitter" data-icon="twitter">Twitter</option>
+                          <option value="linkedin" data-icon="linkedin">LinkedIN</option>
+                          <option value="github" data-icon="github">GitHub</option>
+                          <option value="instagram" data-icon="instagram">Instagram</option>
+                          <option value="dribbble" data-icon="dribbble">Dribbble</option>
+                          <option value="gitlab" data-icon="gitlab">GitLab</option>
+                        </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="col-12">
+                      <button type="reset" class="btn btn-primary me-1">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Basic Floating Label Form section end -->
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+{%endblock content%}

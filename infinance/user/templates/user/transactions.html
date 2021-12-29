@@ -1,0 +1,3176 @@
+{% extends 'user/main.html'%}
+
+{% block content%}
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper container-xxl p-0">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-start mb-0">Transaction Table</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-2.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Transaction
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+        <div class="mb-1 breadcrumb-right">
+          <div class="dropdown">
+            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>
+            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1"
+                  data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item"
+                href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span
+                  class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1"
+                  data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item"
+                href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span
+                  class="align-middle">Calendar</span></a></div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="content-body">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{%if message.tags == 'error'%}danger
+        {%else%}success
+        {%endif%} alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <strong>{{ message}}</strong>
+        </div>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <!-- Basic Tables start -->
+      <!-- <div class="row" id="basic-table">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Table Basic</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Using the most basic table Leanne Grahamup, here’s how <code>.table</code>-based tables look in
+                Bootstrap. You
+                can use any example of below table for your table and it can be use with any type of bootstrap tables.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Basic Tables end -->
+
+      <!-- Dark Tables start -->
+      <!-- <div class="row" id="dark-table">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Dark Table</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                You can also invert the colors—with light text on dark backgrounds—with <code>.table-dark</code> class
+                with
+                <code>.table</code> class.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Dark Tables end -->
+
+      <!-- Table head options start -->
+      <!-- <div class="row" id="table-head">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Table head options</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Similar to tables and dark tables, use the modifier classes
+                <code class="highlighter-rouge">.table-dark</code> to make
+                <code class="highlighter-rouge">&lt;thead&gt;</code>s appear dark.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-body mt-2">
+              <p class="card-text">
+                Use the modifier class <code class="highlighter-rouge">.table-light</code> to make
+                <code class="highlighter-rouge">&lt;thead&gt;</code>s appear light.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="table-light">
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Table head options end -->
+
+      <!-- Striped rows start -->
+      <!-- <div class="row" id="table-striped">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Striped rows</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within
+                the
+                <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as
+                <code>:nth-child</code> CSS selector isn't supported.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Striped rows end -->
+
+      <!-- Striped rows with inverse dark table start -->
+      <!-- <div class="row" id="table-striped-dark">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Striped rows with inverse dark</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Use <code>.table-dark</code> with <code>.table-striped</code> to add zebra-striping to any inverse table
+                row
+                within the <code>&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as
+                <code>:nth-child</code> CSS selector isn't supported.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Striped rows with inverse dark table end -->
+
+      <!-- Bordered table start -->
+      <!-- <div class="row" id="table-bordered">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Bordered table</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Add <code>.table-bordered</code> for borders on all sides of the table and cells. For Inverse Dark
+                Table, add
+                <code>.table-dark</code> along with <code>.table-bordered</code>.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Bordered table end -->
+
+      <!-- Borderless table start -->
+      <!-- <div class="row" id="table-borderless">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Borderless Table</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Borderless table end -->
+
+      <!-- Hoverable rows start -->
+      <div class="row" id="table-hover-row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">My Transactions</h4>
+            </div>
+            <!-- <div class="card-body">
+              <p class="card-text">
+                Add <code class="highlighter-rouge">.table-hover</code> to enable a hover state on table rows within a
+                <code class="highlighter-rouge">&lt;tbody&gt;</code>.
+              </p>
+            </div> -->
+            <div class="table-responsive">
+              {%if total_transactions == 0 %}
+              No Transactions
+              {%else%}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>transaction_id</th>
+                    <th>Reciver</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Card</th>
+                    <th>Amount</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%for transaction in transactions %}
+                  <tr>
+                    <td>
+                      <span class="fw-bold">{{ transaction.type }}</span>
+                    </td>
+                    <td>{{ transaction.transaction_id }}</td>
+                    <td>
+                      {{ transaction.reciver }}
+                      <!-- <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div> -->
+                    </td>
+                    <td><span class="badge rounded-pill 
+                      {%if transaction.status == 'complited' %}
+                         badge-light-success
+                         {%else%}
+                         badge-light-warning
+                         {%endif%}
+                         ">
+                        {{ transaction.status }}</span></td>
+                    <td>{{ transaction.created_at }}</td>
+                    <td>{{ transaction.card.title }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>
+                      {%if transaction.is_deleted == 0%}
+                      <a href="{% url 'deletetransaction' transaction.id %}">
+                        <button type="button" class="btn btn-primary">
+                          <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
+                              <polyline points="3 6 5 6 21 6"></polyline>
+                              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                              </path>
+                              <line x1="10" y1="11" x2="10" y2="17"></line>
+                              <line x1="14" y1="11" x2="14" y2="17"></line>
+                            </svg></div>
+                        </button>
+                      </a>
+                      {%else%}
+                      <a href="{% url 'deletetransaction' transaction.id %}">
+
+                        <button type="button" class="btn btn-primary">
+                          restore
+                          <div class="icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round" class="feather feather-repeat">
+                              <polyline points="17 1 21 5 17 9"></polyline>
+                              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                              <polyline points="7 23 3 19 7 15"></polyline>
+                              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                            </svg></div>
+                        </button>
+                      </a>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {%endfor%}
+                  <!-- <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Hoverable rows end -->
+
+      <!-- Small Table start -->
+      <!-- <div class="row" id="table-small">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Small Table</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Add <code class="highlighter-rouge">.table-sm</code> class with <code>.table</code> to display small
+                size
+                table.
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" alt="Angular" width="18" height="18" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" alt="React" width="18" height="18" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" alt="Vuejs" width="18" height="18" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" alt="Bootstrap" width="18" height="18" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="22" width="22" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Small Table end -->
+
+      <!-- Contextual classes start -->
+      <!-- <div class="row" id="table-contextual">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Contextual classes</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Use contextual classes to color table rows or individual cells. Read full documnetation
+                <a href="https://getbootstrap.com/docs/4.3/content/tables/IDcontextual-classes"
+                  target="_blank">here.</a>
+              </p>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-default">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/figma.svg"
+                        class="me-75" height="20" width="20" alt="Figma" />
+                      <span class="fw-bold">Figma Project</span>
+                    </td>
+                    <td>Ronnie Shane</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-active">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Project</span>
+                    </td>
+                    <td>Ronald Frest</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-primary">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular Project</span>
+                    </td>
+                    <td>Peter Charls</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-secondary">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                        class="me-75" height="20" width="20" alt="Vuejs" />
+                      <span class="fw-bold">Vuejs Project</span>
+                    </td>
+                    <td>Jack Obes</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-secondary me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap Project</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-success me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-danger">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/figma.svg"
+                        class="me-75" height="20" width="20" alt="Figma" />
+                      <span class="fw-bold">Figma Project</span>
+                    </td>
+                    <td>Janne Ale</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-danger me-1">Active</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                        class="me-75" height="20" width="20" alt="React" />
+                      <span class="fw-bold">React Custom</span>
+                    </td>
+                    <td>Ted Richer</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-warning me-1">Scheduled</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Latest Bootstrap</span>
+                    </td>
+                    <td>Perry Parker</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Pending</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-light">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                        class="me-75" height="20" width="20" alt="Angular" />
+                      <span class="fw-bold">Angular UI</span>
+                    </td>
+                    <td>Ana Bell</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-primary me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-dark">
+                    <td>
+                      <img
+                        src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                        class="me-75" height="20" width="20" alt="Bootstrap" />
+                      <span class="fw-bold">Bootstrap UI</span>
+                    </td>
+                    <td>Jerry Milton</td>
+                    <td>
+                      <div class="avatar-group">
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Lilian Nenez">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                          class="avatar pull-up my-0" title="Alberto Glotzbach">
+                          <img
+                            src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                            alt="Avatar" height="26" width="26" />
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge rounded-pill badge-light-info me-1">Completed</span></td>
+                    <td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                          data-bs-toggle="dropdown">
+                          <i data-feather="more-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Edit</span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="trash" class="me-50"></i>
+                            <span>Delete</span>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Contextual classes end -->
+
+      <!-- Table without card start -->
+      <!-- <div class="row" id="table-without-card">
+        <div class="col-12 my-2">
+          <h5 class="mb-1">Table without card</h5>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Client</th>
+                  <th>Users</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/angular.svg"
+                      class="me-75" height="20" width="20" alt="Angular" />
+                    <span class="fw-bold">Angular Project</span>
+                  </td>
+                  <td>Peter Charls</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Lilian Nenez">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                        data-bs-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="edit-2" class="me-50"></i>
+                          <span>Edit</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="trash" class="me-50"></i>
+                          <span>Delete</span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/react.svg"
+                      class="me-75" height="20" width="20" alt="React" />
+                    <span class="fw-bold">React Project</span>
+                  </td>
+                  <td>Ronald Frest</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Lilian Nenez">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge rounded-pill badge-light-success me-1">Completed</span></td>
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                        data-bs-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="edit-2" class="me-50"></i>
+                          <span>Edit</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="trash" class="me-50"></i>
+                          <span>Delete</span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/vuejs.svg"
+                      class="me-75" height="20" width="20" alt="Vuejs" />
+                    <span class="fw-bold">Vuejs Project</span>
+                  </td>
+                  <td>Jack Obes</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Lilian Nenez">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge rounded-pill badge-light-info me-1">Scheduled</span></td>
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                        data-bs-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="edit-2" class="me-50"></i>
+                          <span>Edit</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="trash" class="me-50"></i>
+                          <span>Delete</span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/bootstrap.svg"
+                      class="me-75" height="20" width="20" alt="Bootstrap" />
+                    <span class="fw-bold">Bootstrap Project</span>
+                  </td>
+                  <td>Jerry Milton</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Lilian Nenez">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-5.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-6.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar pull-up my-0" title="Alberto Glotzbach">
+                        <img
+                          src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/portrait/small/avatar-s-7.jpg"
+                          alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge rounded-pill badge-light-warning me-1">Pending</span></td>
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0"
+                        data-bs-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="edit-2" class="me-50"></i>
+                          <span>Edit</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i data-feather="trash" class="me-50"></i>
+                          <span>Delete</span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> -->
+      <!-- Table without card End -->
+
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+
+{%endblock content%}
